@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - BACKEND_URL=http://backend:8080
+      - NODE_ENV=production
+    depends_on:
+      backend:
+        condition: service_started
+    networks:
+      - codeflow-net
+
+  backend:
+    build:
+      context: ../backendFlow
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-postgres}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_SSLMODE=${DB_SSLMODE:-require}
+    networks:
+      - codeflow-net
+
+networks:
+  codeflow-net:
+    driver: bridge

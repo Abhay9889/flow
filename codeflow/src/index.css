@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+
+  --color-surface-variant: #e8e3da;
+  --color-surface-dim: #d6d1c9;
+  --color-tertiary: #0055ff;
+  --color-primary: #1a1a1a;
+  --color-background: #f5f0e8;
+  --color-surface: #f5f0e8;
+  --color-primary-container: #ffcc00;
+  --color-secondary: #e63b2e;
+}
+
+body {
+  background-color: #f5f0e8;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* ===== DARK MODE ===== */
+.dark body, .dark {
+  background-color: #0f0f17;
+  color: #e2e8f0;
+}
+
+.dark .bg-background { background-color: #0f0f17; }
+.dark .bg-\[\#faf7f2\] { background-color: #1a1a2e !important; }
+.dark .bg-stone-50 { background-color: #1e1e2e !important; }
+.dark .bg-stone-100 { background-color: #22223a !important; }
+.dark .bg-stone-200\/40 { background-color: rgba(42,42,62,0.4) !important; }
+.dark .text-primary { color: #e2e8f0; }
+.dark .text-stone-700 { color: #a0aec0 !important; }
+.dark .text-stone-600 { color: #8892a0 !important; }
+.dark .text-stone-500 { color: #6b7280 !important; }
+.dark .text-stone-400 { color: #5a6070 !important; }
+.dark .text-stone-300 { color: #9ca3af !important; }
+.dark .text-\[\#1a1a1a\] { color: #e2e8f0 !important; }
+.dark .border-primary { border-color: #3a3a5c !important; }
+.dark .border-stone-200 { border-color: #2a2a44 !important; }
+.dark .border-stone-300 { border-color: #333355 !important; }
+
+/* Dark scrollbars */
+.dark ::-webkit-scrollbar-track { background: #0f0f17; border-left-color: #3a3a5c; }
+.dark ::-webkit-scrollbar-thumb { background: #3a3a5c; border-color: #0f0f17; }
+
+/* Custom Neo Brutalist classes */
+.neo-brutal-border {
+  border: 3px solid #1a1a1a;
+}
+
+.neo-brutal-shadow {
+  box-shadow: 6px 6px 0px 0px #1a1a1a;
+  transition: all 0.2s ease;
+}
+
+.neo-brutal-shadow:hover {
+  box-shadow: 2px 2px 0px 0px #1a1a1a;
+  transform: translate(4px, 4px);
+}
+
+.neo-brutal-shadow-sm {
+  box-shadow: 4px 4px 0px 0px #1a1a1a;
+}
+
+.neo-brutal-shadow-sm-hover:hover {
+  box-shadow: 1px 1px 0px 0px #1a1a1a;
+  transform: translate(3px, 3px);
+  transition: all 0.15s ease;
+}
+
+.neo-brutal-shadow-yellow {
+  box-shadow: 6px 6px 0px 0px #ffcc00;
+}
+
+.neo-brutal-shadow-blue {
+  box-shadow: 6px 6px 0px 0px #0055ff;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.word-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.word-reveal span {
+  display: inline-block;
+}
+
+/* Scrollbars styling for a clean tech-look */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+  border-left: 3px solid #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border: 2px solid #f5f0e8;
+}
+
+/* ===== Animated dotted flow connections (Supabase-style) ===== */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.flow-connection {
+  stroke-dasharray: 8 6;
+  animation: dash-flow 0.8s linear infinite;
+}
+
+.flow-connection-slow {
+  stroke-dasharray: 12 8;
+  animation: dash-flow 1.5s linear infinite;
+}
+
+/* Node pulse glow by role color */
+@keyframes node-pulse-yellow {
+  0%, 100% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 0 rgba(255,204,0,0.4); }
+  50% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 10px rgba(255,204,0,0); }
+}
+@keyframes node-pulse-blue {
+  0%, 100% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 0 rgba(0,85,255,0.4); }
+  50% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 10px rgba(0,85,255,0); }
+}
+@keyframes node-pulse-red {
+  0%, 100% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 0 rgba(230,59,46,0.4); }
+  50% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 10px rgba(230,59,46,0); }
+}
+@keyframes node-pulse-green {
+  0%, 100% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 0 rgba(16,185,129,0.4); }
+  50% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 10px rgba(16,185,129,0); }
+}
+@keyframes node-pulse-purple {
+  0%, 100% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 0 rgba(139,92,246,0.4); }
+  50% { box-shadow: 6px 6px 0px 0px #1a1a1a, 0 0 0 10px rgba(139,92,246,0); }
+}
+
+.pulse-yellow { animation: node-pulse-yellow 2s ease-in-out infinite; }
+.pulse-blue { animation: node-pulse-blue 2s ease-in-out infinite; }
+.pulse-red { animation: node-pulse-red 2s ease-in-out infinite; }
+.pulse-green { animation: node-pulse-green 2s ease-in-out infinite; }
+.pulse-purple { animation: node-pulse-purple 2s ease-in-out infinite; }
+
+/* ===== Auth form animations ===== */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.auth-animate {
+  animation: slide-up 0.5s ease-out;
+}
+
+.fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+/* ===== Big-O Graph ===== */
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.graph-line {
+  stroke-dasharray: 1000;
+  animation: draw-line 2s ease-out forwards;
+}
+
+.graph-line-highlight {
+  stroke-dasharray: 1000;
+  animation: draw-line 1.5s ease-out forwards;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* ===== Feature card interactions ===== */
+@keyframes feature-reveal {
+  from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
+  to { opacity: 1; max-height: 300px; padding-top: 16px; padding-bottom: 16px; }
+}
+
+.feature-expand {
+  animation: feature-reveal 0.4s ease-out forwards;
+  overflow: hidden;
+}
+
+/* ===== Floating dots background ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.float-slow { animation: float 6s ease-in-out infinite; }
+.float-med { animation: float 4s ease-in-out infinite 1s; }
+.float-fast { animation: float 3s ease-in-out infinite 0.5s; }
+
+/* ===== Workflow Graph Animations ===== */
+@keyframes wf-dash-flow {
+  to { stroke-dashoffset: -26; }
+}
+
+.wf-edge-animated {
+  animation: wf-dash-flow 0.9s linear infinite;
+}
+
+@keyframes wf-glow-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.wf-node-glow {
+  animation: wf-glow-pulse 2s ease-in-out infinite;
+}
+
+.wf-ctrl-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1d30;
+  border: 1px solid #2a2d45;
+  color: #8b9dc3;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wf-ctrl-btn:hover {
+  background: #252840;
+  color: #c4b5fd;
+  border-color: #4f46e5;
+}
+
+.workflow-graph-container {
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: codeflow-api
+    runtime: docker
+    plan: free
+    rootDir: backendFlow
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/auth/health
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+
+  - type: web
+    name: codeflow-web
+    runtime: docker
+    plan: free
+    rootDir: codeflow
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: BACKEND_URL
+        sync: false

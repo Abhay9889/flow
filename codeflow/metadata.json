@@ -1,0 +1,6 @@
+{
+  "name": "CodeFlow",
+  "description": "Understand any code instantly. Neo-Brutalist code analyzer providing visual execution flows, dependency graphs, and complexity metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
